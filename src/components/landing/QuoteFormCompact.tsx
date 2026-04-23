@@ -68,7 +68,7 @@ export function QuoteFormCompact() {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="relative bg-card/95 backdrop-blur-xl rounded-[22px] border border-border/60 shadow-glow px-6 py-7 sm:px-8 sm:py-9 lg:px-9 lg:py-10 space-y-5"
+        className="relative bg-card/95 backdrop-blur-xl rounded-2xl border border-border/60 shadow-glow p-5 sm:p-6 space-y-4"
       >
         <div className="flex items-start gap-3 rounded-xl border border-border/70 bg-background/50 px-5 py-4">
           <div className="h-11 w-11 rounded-xl bg-gradient-hero flex items-center justify-center shadow-soft shrink-0">
