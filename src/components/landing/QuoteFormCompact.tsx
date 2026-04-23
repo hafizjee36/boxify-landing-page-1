@@ -63,19 +63,21 @@ export function QuoteFormCompact() {
   return (
     <div className="relative">
       {/* Glow ring */}
-      <div className="absolute -inset-1 bg-gradient-hero rounded-3xl blur-xl opacity-40 animate-pulse-glow" />
+      <div className="absolute -inset-1 bg-gradient-hero rounded-2xl blur-xl opacity-40 animate-pulse-glow" />
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="relative bg-card/95 backdrop-blur-xl rounded-3xl border border-border/60 shadow-glow p-6 space-y-3.5"
+        className="relative bg-card/95 backdrop-blur-xl rounded-2xl border border-border/60 shadow-glow p-7 sm:p-8 space-y-4"
       >
-        <div className="flex items-center gap-2 mb-2">
-          <div className="h-8 w-8 rounded-lg bg-gradient-hero flex items-center justify-center shadow-soft">
-            <Sparkles className="h-4 w-4 text-primary-foreground" />
+        <div className="flex items-start gap-3 pb-3 border-b border-border/60">
+          <div className="h-10 w-10 rounded-xl bg-gradient-hero flex items-center justify-center shadow-soft shrink-0">
+            <Sparkles className="h-5 w-5 text-primary-foreground" />
           </div>
           <div>
-            <h3 className="text-base font-bold leading-tight">Get an Instant Quote</h3>
-            <p className="text-[11px] text-muted-foreground">Reply within hours</p>
+            <h3 className="text-lg font-bold leading-tight">Get an Instant Quote</h3>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Share a few details and our packaging experts reply within hours with pricing, material options & free design support.
+            </p>
           </div>
         </div>
 

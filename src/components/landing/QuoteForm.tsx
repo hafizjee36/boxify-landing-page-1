@@ -166,10 +166,10 @@ export function QuoteForm() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3 relative"
           >
-            <div className="absolute -inset-1 bg-gradient-hero rounded-3xl blur-xl opacity-30" />
+            <div className="absolute -inset-1 bg-gradient-hero rounded-2xl blur-xl opacity-30" />
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="relative bg-card rounded-3xl border border-border shadow-glow p-6 sm:p-8 space-y-5"
+              className="relative bg-card rounded-2xl border border-border shadow-glow p-8 sm:p-10 space-y-6"
             >
               <div className="flex items-start justify-between gap-4 pb-2 border-b border-border">
                 <div>
