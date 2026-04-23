@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Package, Zap, Award } from "lucide-react";
+import { QuoteFormCompact } from "./QuoteFormCompact";
 
 export function Hero() {
   return (
@@ -62,27 +63,12 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative h-[420px] hidden lg:block"
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="relative w-full max-w-md mx-auto lg:max-w-none"
         >
-          {/* 3D animated box stack */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative">
-              <div className="absolute -top-20 -left-16 w-44 h-44 bg-gradient-hero rounded-2xl shadow-glow animate-float opacity-90" style={{ transform: "rotate(-12deg)" }} />
-              <div className="absolute -top-8 left-20 w-52 h-52 bg-gradient-to-br from-primary-glow to-primary rounded-2xl shadow-glow animate-float opacity-95" style={{ animationDelay: "1.5s", transform: "rotate(8deg)" }} />
-              <div className="absolute top-32 -left-4 w-60 h-60 bg-gradient-to-br from-primary-deep to-primary rounded-2xl shadow-glow animate-float" style={{ animationDelay: "0.8s", transform: "rotate(-4deg)" }}>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent rounded-2xl animate-shimmer" />
-              </div>
-            </div>
-          </div>
-          <div className="absolute top-10 right-10 rounded-full bg-card/90 backdrop-blur shadow-card px-4 py-2 text-sm font-semibold animate-pulse-glow">
-            ✨ Luxury Finish
-          </div>
-          <div className="absolute bottom-10 left-10 rounded-full bg-card/90 backdrop-blur shadow-card px-4 py-2 text-sm font-semibold animate-pulse-glow" style={{ animationDelay: "1.5s" }}>
-            🚚 Fast Shipping
-          </div>
+          <QuoteFormCompact />
         </motion.div>
       </div>
     </section>

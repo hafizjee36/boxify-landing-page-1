@@ -22,7 +22,8 @@ export function Footer() {
             </li>
             <li>
               <a href="mailto:sales@dailyboxpackaging.com" className="flex items-center gap-2 hover:text-primary-glow break-all">
-                <Mail className="h-4 w-4" /> sales@dailyboxpackaging.com
+                <Mail className="h-4 w-4" />
+                <span>sales@dailyboxpackaging.com</span>
               </a>
             </li>
           </ul>
