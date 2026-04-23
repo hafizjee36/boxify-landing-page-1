@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Package, Zap, Award } from "lucide-react";
+import { QuoteFormCompact } from "./QuoteFormCompact";
 
 export function Hero() {
   return (
