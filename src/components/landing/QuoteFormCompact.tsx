@@ -63,44 +63,44 @@ export function QuoteFormCompact() {
   };
 
   return (
-    <div className="relative px-2 sm:px-0">
-      <div className="absolute -inset-1 bg-gradient-hero rounded-2xl blur-xl opacity-35 animate-pulse-glow" />
+    <div className="relative px-3 sm:px-4 lg:px-0">
+      <div className="absolute -inset-2 bg-gradient-hero rounded-[22px] blur-xl opacity-35 animate-pulse-glow" />
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="relative bg-card/95 backdrop-blur-xl rounded-2xl border border-border/60 shadow-glow px-5 py-6 sm:px-7 sm:py-8 lg:px-8 lg:py-9 space-y-4"
+        className="relative bg-card/95 backdrop-blur-xl rounded-[22px] border border-border/60 shadow-glow px-6 py-7 sm:px-8 sm:py-9 lg:px-9 lg:py-10 space-y-5"
       >
-        <div className="flex items-start gap-3 rounded-xl border border-border/60 bg-background/40 px-4 py-3.5">
-          <div className="h-10 w-10 rounded-lg bg-gradient-hero flex items-center justify-center shadow-soft shrink-0">
+        <div className="flex items-start gap-3 rounded-xl border border-border/70 bg-background/50 px-5 py-4">
+          <div className="h-11 w-11 rounded-xl bg-gradient-hero flex items-center justify-center shadow-soft shrink-0">
             <Sparkles className="h-5 w-5 text-primary-foreground" />
           </div>
-          <div className="space-y-1">
-            <h3 className="text-lg font-bold leading-tight">Get an Instant Quote</h3>
-            <p className="text-xs leading-5 text-muted-foreground">
+          <div className="space-y-1.5">
+            <h3 className="text-xl font-bold leading-tight">Get an Instant Quote</h3>
+            <p className="text-sm leading-6 text-muted-foreground">
               Share product, quantity and box details — our team replies within hours with pricing and design support.
             </p>
           </div>
         </div>
 
         <div className="space-y-1.5">
-          <Input placeholder="Full name" {...register("name")} className="h-11 rounded-lg bg-background/70" />
+          <Input placeholder="Full name" {...register("name")} className="h-12 rounded-xl bg-background/70 px-4" />
           {errors.name && <p className="text-[11px] text-destructive">{errors.name.message}</p>}
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-3">
+        <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Input type="email" placeholder="Email" {...register("email")} className="h-11 rounded-lg bg-background/70" />
+            <Input type="email" placeholder="Email" {...register("email")} className="h-12 rounded-xl bg-background/70 px-4" />
             {errors.email && <p className="text-[11px] text-destructive">{errors.email.message}</p>}
           </div>
           <div className="space-y-1.5">
-            <Input type="tel" placeholder="Phone" {...register("phone")} className="h-11 rounded-lg bg-background/70" />
+            <Input type="tel" placeholder="Phone" {...register("phone")} className="h-12 rounded-xl bg-background/70 px-4" />
             {errors.phone && <p className="text-[11px] text-destructive">{errors.phone.message}</p>}
           </div>
         </div>
 
         <div className="space-y-1.5">
           <Select value={watch("product")} onValueChange={(v) => setValue("product", v, { shouldValidate: true })}>
-            <SelectTrigger className="h-11 rounded-lg bg-background/70">
+            <SelectTrigger className="h-12 rounded-xl bg-background/70 px-4">
               <SelectValue placeholder="Select product type" />
             </SelectTrigger>
             <SelectContent>
@@ -114,10 +114,10 @@ export function QuoteFormCompact() {
 
         <div className="space-y-1.5">
           <Textarea
-            rows={3}
+            rows={4}
             placeholder="Description / box details"
             {...register("message")}
-            className="min-h-[96px] rounded-lg bg-background/70 resize-none"
+            className="min-h-[128px] rounded-xl bg-background/70 px-4 py-3 resize-none"
           />
           {errors.message && <p className="text-[11px] text-destructive">{errors.message.message}</p>}
         </div>
@@ -125,7 +125,7 @@ export function QuoteFormCompact() {
         <Button
           type="submit"
           disabled={submitting}
-          className="w-full h-11 rounded-lg bg-gradient-hero text-primary-foreground shadow-glow hover:opacity-95 hover:scale-[1.01] transition-all font-semibold"
+          className="w-full h-12 rounded-xl bg-gradient-hero text-primary-foreground shadow-glow hover:opacity-95 hover:scale-[1.01] transition-all font-semibold"
         >
           {submitting ? (
             <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Sending…</>
@@ -133,7 +133,7 @@ export function QuoteFormCompact() {
             <>Get Free Quote <Send className="h-4 w-4 ml-1.5" /></>
           )}
         </Button>
-        <p className="text-[11px] leading-5 text-muted-foreground text-center px-2">
+        <p className="text-xs leading-6 text-muted-foreground text-center px-3 pt-1">
           No spam — only quote details for your packaging project.
         </p>
       </form>
