@@ -166,51 +166,51 @@ export function QuoteForm() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3 relative"
           >
-            <div className="absolute -inset-1 bg-gradient-hero rounded-2xl blur-xl opacity-30" />
+            <div className="absolute -inset-2 bg-gradient-hero rounded-[22px] blur-xl opacity-30" />
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="relative bg-card rounded-2xl border border-border shadow-glow px-5 py-6 sm:px-8 sm:py-9 lg:px-10 lg:py-10 space-y-6"
+              className="relative bg-card rounded-[22px] border border-border shadow-glow px-6 py-7 sm:px-10 sm:py-10 lg:px-12 lg:py-11 space-y-7"
             >
-              <div className="flex items-start justify-between gap-4 rounded-xl border border-border/70 bg-background/40 px-4 py-4 sm:px-5">
+              <div className="flex items-start justify-between gap-4 rounded-xl border border-border/70 bg-background/40 px-5 py-5 sm:px-6">
                 <div>
                   <h3 className="text-2xl font-bold">Request a Free Quote</h3>
-                  <p className="text-sm text-muted-foreground mt-1 leading-6">Fill the form and our team will reply within hours.</p>
+                  <p className="text-sm text-muted-foreground mt-1.5 leading-6">Fill the form and our team will reply within hours.</p>
                 </div>
-                <div className="hidden sm:flex h-12 w-12 rounded-lg bg-gradient-hero items-center justify-center shadow-soft shrink-0">
+                <div className="hidden sm:flex h-12 w-12 rounded-xl bg-gradient-hero items-center justify-center shadow-soft shrink-0">
                   <Send className="h-5 w-5 text-primary-foreground" />
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div className="space-y-2">
                   <Label htmlFor="name">Full Name *</Label>
-                  <Input id="name" placeholder="John Doe" {...register("name")} className="h-11 rounded-lg bg-background/70" />
+                  <Input id="name" placeholder="John Doe" {...register("name")} className="h-12 rounded-xl bg-background/70 px-4" />
                   {errors.name && <p className="text-xs text-destructive">{errors.name.message}</p>}
                 </div>
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <Label htmlFor="email">Email *</Label>
-                  <Input id="email" type="email" placeholder="you@brand.com" {...register("email")} className="h-11 rounded-lg bg-background/70" />
+                  <Input id="email" type="email" placeholder="you@brand.com" {...register("email")} className="h-12 rounded-xl bg-background/70 px-4" />
                   {errors.email && <p className="text-xs text-destructive">{errors.email.message}</p>}
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div className="space-y-2">
                   <Label htmlFor="phone">Phone *</Label>
-                  <Input id="phone" type="tel" placeholder="(760) 555-0100" {...register("phone")} className="h-11 rounded-lg bg-background/70" />
+                  <Input id="phone" type="tel" placeholder="(760) 555-0100" {...register("phone")} className="h-12 rounded-xl bg-background/70 px-4" />
                   {errors.phone && <p className="text-xs text-destructive">{errors.phone.message}</p>}
                 </div>
-                <div className="space-y-1.5">
+                <div className="space-y-2">
                   <Label htmlFor="quantity">Quantity *</Label>
-                  <Input id="quantity" placeholder="e.g. 500" {...register("quantity")} className="h-11 rounded-lg bg-background/70" />
+                  <Input id="quantity" placeholder="e.g. 500" {...register("quantity")} className="h-12 rounded-xl bg-background/70 px-4" />
                   {errors.quantity && <p className="text-xs text-destructive">{errors.quantity.message}</p>}
                 </div>
               </div>
 
-              <div className="space-y-1.5">
+              <div className="space-y-2">
                 <Label htmlFor="product">Product Type *</Label>
                 <Select value={watch("product")} onValueChange={(v) => setValue("product", v, { shouldValidate: true })}>
-                  <SelectTrigger id="product" className="h-11 rounded-lg bg-background/70">
+                  <SelectTrigger id="product" className="h-12 rounded-xl bg-background/70 px-4">
                     <SelectValue placeholder="Select a product" />
                   </SelectTrigger>
                   <SelectContent>
@@ -222,14 +222,14 @@ export function QuoteForm() {
                 {errors.product && <p className="text-xs text-destructive">{errors.product.message}</p>}
               </div>
 
-              <div className="space-y-1.5">
+              <div className="space-y-2">
                 <Label htmlFor="message">Project Details</Label>
                 <Textarea
                   id="message"
-                  rows={4}
+                  rows={5}
                   placeholder="Tell us about size, material, finishes, deadline…"
                   {...register("message")}
-                  className="min-h-[120px] rounded-lg bg-background/70 resize-none"
+                  className="min-h-[144px] rounded-xl bg-background/70 px-4 py-3 resize-none"
                 />
               </div>
 
@@ -237,7 +237,7 @@ export function QuoteForm() {
                 type="submit"
                 size="lg"
                 disabled={submitting}
-                className="w-full h-12 rounded-lg bg-gradient-hero text-primary-foreground shadow-glow hover:opacity-95 hover:scale-[1.01] transition-all text-base font-semibold"
+                className="w-full h-12 rounded-xl bg-gradient-hero text-primary-foreground shadow-glow hover:opacity-95 hover:scale-[1.01] transition-all text-base font-semibold"
               >
                 {submitting ? (
                   <>
@@ -249,7 +249,7 @@ export function QuoteForm() {
                   </>
                 )}
               </Button>
-              <p className="text-xs leading-5 text-muted-foreground text-center px-2">
+              <p className="text-xs leading-6 text-muted-foreground text-center px-4 pt-1">
                 By submitting, you agree to be contacted about your packaging project.
               </p>
             </form>
