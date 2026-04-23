@@ -169,7 +169,7 @@ export function QuoteForm() {
             <div className="absolute -inset-2 bg-gradient-hero rounded-[22px] blur-xl opacity-30" />
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="relative bg-card rounded-[22px] border border-border shadow-glow px-6 py-7 sm:px-10 sm:py-10 lg:px-12 lg:py-11 space-y-7"
+              className="relative bg-card rounded-[22px] border border-border shadow-glow px-8 py-9 sm:px-12 sm:py-12 lg:px-14 lg:py-12 space-y-7"
             >
               <div className="flex items-start justify-between gap-4 rounded-xl border border-border/70 bg-background/40 px-5 py-5 sm:px-6">
                 <div>
