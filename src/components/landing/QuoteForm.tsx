@@ -68,7 +68,7 @@ export function QuoteForm() {
   };
 
   return (
-    <section id="quote" className="relative py-20 sm:py-28 overflow-hidden">
+    <section id="quote" className="relative py-10 sm:py-10 overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 bg-gradient-mesh opacity-50 pointer-events-none" />
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-blob pointer-events-none" />
