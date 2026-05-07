@@ -36,13 +36,19 @@ export const Route = createRootRoute({
           "Premium custom packaging boxes — magnetic closure, jewelry, watch, candle & sliding boxes. Free design, fast turnaround. Get a quote today.",
       },
       { name: "author", content: "DailyBox Packaging" },
-      { property: "og:title", content: "DailyBox Packaging — Custom Luxury Boxes" },
+      { property: "og:title", content: "DailyBox Packaging — Custom Rigid, Magnetic & Luxury Boxes" },
       {
         property: "og:description",
         content: "Premium custom packaging — magnetic, rigid, jewelry, watch & candle boxes.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "DailyBox Packaging — Custom Rigid, Magnetic & Luxury Boxes" },
+      { name: "description", content: "A modern, animated landing page for a box packaging company, featuring a product slider and a quote form." },
+      { property: "og:description", content: "A modern, animated landing page for a box packaging company, featuring a product slider and a quote form." },
+      { name: "twitter:description", content: "A modern, animated landing page for a box packaging company, featuring a product slider and a quote form." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c95c448f-bf18-4c4d-aec1-e83dc12786b4/id-preview-fa57a2ec--9f3880a5-bcf3-4dce-865f-6cb377fc89a8.lovable.app-1778185541360.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c95c448f-bf18-4c4d-aec1-e83dc12786b4/id-preview-fa57a2ec--9f3880a5-bcf3-4dce-865f-6cb377fc89a8.lovable.app-1778185541360.png" },
     ],
     links: [
       {
