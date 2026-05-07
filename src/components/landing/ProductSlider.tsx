@@ -2,71 +2,11 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Box3DViewer } from "./Box3DViewer";
-
-import magneticAssembled from "@/assets/products/magnetic-assembled.jpg";
-import collapsible from "@/assets/products/collapsible.png";
-import jewelry from "@/assets/products/jewelry.jpg";
-import watch from "@/assets/products/watch.jpg";
-import candle from "@/assets/products/candle.jpg";
-import sliding from "@/assets/products/sliding.png";
-
-type Product = {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-  tag: string;
-  model3d?: string;
-};
-
-const products: Product[] = [
-  {
-    title: "Magnetic Closure Boxes (Assembled)",
-    description: "Pre-assembled luxury rigid boxes with strong magnetic closure for a premium unboxing.",
-    image: magneticAssembled,
-    link: "https://dailyboxpackaging.com/products/magnetic-closure-boxes-assembled/",
-    tag: "Bestseller — 3D View",
-    model3d: "/models/magnetic-box.glb",
-  },
-  {
-    title: "Magnet Closure Boxes (Collapsible)",
-    description: "Space-saving collapsible rigid boxes with magnetic flap — ship flat, fold instantly.",
-    image: collapsible,
-    link: "https://dailyboxpackaging.com/products/magnet-closure-boxes-collapsible/",
-    tag: "Eco Smart",
-  },
-  {
-    title: "Jewelry Boxes",
-    description: "Elegant custom jewelry boxes with velvet inserts, foil stamping, and luxurious finishes.",
-    image: jewelry,
-    link: "https://dailyboxpackaging.com/products/jewelry-boxes/",
-    tag: "Luxury",
-  },
-  {
-    title: "Watch Boxes",
-    description: "Premium watch packaging built for protection, presentation, and brand impact.",
-    image: watch,
-    link: "https://dailyboxpackaging.com/products/watch-boxes/",
-    tag: "Premium",
-  },
-  {
-    title: "Rigid Candle Boxes",
-    description: "Sturdy rigid candle boxes designed to protect, present, and elevate your fragrance brand.",
-    image: candle,
-    link: "https://dailyboxpackaging.com/products/rigid-candle-boxes/",
-    tag: "Trending",
-  },
-  {
-    title: "Sliding Boxes",
-    description: "Custom sliding drawer boxes ideal for gifts, cosmetics, and signature product launches.",
-    image: sliding,
-    link: "https://dailyboxpackaging.com/products/sliding-boxes/",
-    tag: "Versatile",
-  },
-];
+import { products } from "@/data/products";
 
 export function ProductSlider() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
