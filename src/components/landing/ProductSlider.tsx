@@ -4,6 +4,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Box3DViewer } from "./Box3DViewer";
 
 import magneticAssembled from "@/assets/products/magnetic-assembled.jpg";
 import collapsible from "@/assets/products/collapsible.png";
@@ -18,6 +19,7 @@ type Product = {
   image: string;
   link: string;
   tag: string;
+  model3d?: string;
 };
 
 const products: Product[] = [
@@ -26,7 +28,8 @@ const products: Product[] = [
     description: "Pre-assembled luxury rigid boxes with strong magnetic closure for a premium unboxing.",
     image: magneticAssembled,
     link: "https://dailyboxpackaging.com/products/magnetic-closure-boxes-assembled/",
-    tag: "Bestseller",
+    tag: "Bestseller — 3D View",
+    model3d: "/models/magnetic-box.glb",
   },
   {
     title: "Magnet Closure Boxes (Collapsible)",
@@ -123,16 +126,22 @@ export function ProductSlider() {
                     className="group h-full bg-gradient-card rounded-3xl border border-border shadow-card hover:shadow-glow transition-all duration-500 overflow-hidden"
                   >
                     <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                      <img
-                        src={p.image}
-                        alt={p.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute top-3 left-3 rounded-full bg-card/90 backdrop-blur px-3 py-1 text-xs font-bold text-primary shadow-card">
+                      {p.model3d ? (
+                        <Box3DViewer src={p.model3d} alt={p.title} poster={p.image} className="w-full h-full" />
+                      ) : (
+                        <img
+                          src={p.image}
+                          alt={p.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                      )}
+                      <div className="absolute top-3 left-3 rounded-full bg-card/90 backdrop-blur px-3 py-1 text-xs font-bold text-primary shadow-card pointer-events-none">
                         {p.tag}
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary-deep/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {!p.model3d && (
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary-deep/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      )}
                     </div>
                     <div className="p-6 space-y-3">
                       <h3 className="text-xl font-bold leading-tight">{p.title}</h3>
