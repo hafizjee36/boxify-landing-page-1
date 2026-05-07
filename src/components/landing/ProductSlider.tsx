@@ -86,15 +86,14 @@ export function ProductSlider() {
                     <div className="p-6 space-y-3">
                       <h3 className="text-xl font-bold leading-tight">{p.title}</h3>
                       <p className="text-sm text-muted-foreground line-clamp-2">{p.description}</p>
-                      <a
-                        href={p.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        to="/products/$slug"
+                        params={{ slug: p.slug }}
                         className="inline-flex items-center gap-2 text-primary font-semibold text-sm group/link"
                       >
                         View Details
                         <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
-                      </a>
+                      </Link>
                     </div>
                   </motion.div>
                 </div>
