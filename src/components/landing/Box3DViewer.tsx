@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
-declare global {
+declare module "react" {
   namespace JSX {
     interface IntrinsicElements {
       "model-viewer": any;
     }
   }
 }
+
 
 
 interface Box3DViewerProps {
