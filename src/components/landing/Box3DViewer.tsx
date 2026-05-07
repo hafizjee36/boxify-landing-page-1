@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "model-viewer": any;
+    }
+  }
+}
+
+
 interface Box3DViewerProps {
   src: string;
   alt?: string;
@@ -29,7 +38,6 @@ export function Box3DViewer({ src, alt = "3D box model", className, poster, auto
     );
   }
 
-  // @ts-expect-error - model-viewer is a custom element
   return (
     <model-viewer
       src={src}
