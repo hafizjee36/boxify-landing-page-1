@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Box3DViewer } from "./Box3DViewer";
@@ -87,8 +87,7 @@ export function ProductSlider() {
                       <h3 className="text-xl font-bold leading-tight">{p.title}</h3>
                       <p className="text-sm text-muted-foreground line-clamp-2">{p.description}</p>
                       <Link
-                        to="/products/$slug"
-                        params={{ slug: p.slug }}
+                        to={`/products/${p.slug}`}
                         className="inline-flex items-center gap-2 text-primary font-semibold text-sm group/link"
                       >
                         View Details

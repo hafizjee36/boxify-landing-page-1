@@ -1,4 +1,5 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Check, ExternalLink, Package, Clock, Layers, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,43 +9,20 @@ import { Footer } from "@/components/landing/Footer";
 import { Box3DViewer } from "@/components/landing/Box3DViewer";
 import { QuoteForm } from "@/components/landing/QuoteForm";
 import { getProductBySlug, products } from "@/data/products";
+import NotFound from "./NotFound";
 
-export const Route = createFileRoute("/products/$slug")({
-  loader: ({ params }) => {
-    const product = getProductBySlug(params.slug);
-    if (!product) throw notFound();
-    return { product };
-  },
-  head: ({ loaderData }) => {
-    const p = loaderData?.product;
-    if (!p) return { meta: [{ title: "Product not found" }] };
-    return {
-      meta: [
-        { title: `${p.title} — Daily Box Packaging` },
-        { name: "description", content: p.description },
-        { property: "og:title", content: p.title },
-        { property: "og:description", content: p.description },
-      ],
-    };
-  },
-  component: ProductDetailPage,
-  notFoundComponent: () => (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-4">
-      <h1 className="text-4xl font-bold">Product not found</h1>
-      <Link to="/" className="text-primary underline">Back home</Link>
-    </div>
-  ),
-  errorComponent: ({ error }) => (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-4 p-6 text-center">
-      <h1 className="text-2xl font-bold">Something went wrong</h1>
-      <p className="text-muted-foreground">{error.message}</p>
-      <Link to="/" className="text-primary underline">Back home</Link>
-    </div>
-  ),
-});
+export default function ProductDetail() {
+  const { slug } = useParams<{ slug: string }>();
+  const product = slug ? getProductBySlug(slug) : undefined;
 
-function ProductDetailPage() {
-  const { product } = Route.useLoaderData();
+  useEffect(() => {
+    if (product) {
+      document.title = `${product.title} — Daily Box Packaging`;
+    }
+  }, [product]);
+
+  if (!product) return <NotFound />;
+
   const related = products.filter((p) => p.slug !== product.slug).slice(0, 3);
 
   return (
@@ -62,7 +40,6 @@ function ProductDetailPage() {
             </Link>
 
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-              {/* Visual */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -77,18 +54,13 @@ function ProductDetailPage() {
                     className="w-full h-full"
                   />
                 ) : (
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
                 )}
                 <div className="absolute top-4 left-4 rounded-full bg-card/90 backdrop-blur px-3 py-1 text-xs font-bold text-primary shadow-card">
                   {product.tag}
                 </div>
               </motion.div>
 
-              {/* Info */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -99,12 +71,8 @@ function ProductDetailPage() {
                   <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold mb-3">
                     <Sparkles className="h-3 w-3" /> Custom Packaging
                   </div>
-                  <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">
-                    {product.title}
-                  </h1>
-                  <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                    {product.longDescription}
-                  </p>
+                  <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">{product.title}</h1>
+                  <p className="mt-4 text-lg text-muted-foreground leading-relaxed">{product.longDescription}</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
@@ -123,11 +91,7 @@ function ProductDetailPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="bg-gradient-hero text-primary-foreground shadow-glow hover:opacity-95 rounded-xl"
-                  >
+                  <Button asChild size="lg" className="bg-gradient-hero text-primary-foreground shadow-glow hover:opacity-95 rounded-xl">
                     <a href="#quote">Get a Free Quote</a>
                   </Button>
                   <Button asChild size="lg" variant="outline" className="rounded-xl">
@@ -141,7 +105,6 @@ function ProductDetailPage() {
           </div>
         </section>
 
-        {/* Details grid */}
         <section className="py-12 sm:py-16">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="grid md:grid-cols-2 gap-6">
@@ -153,7 +116,6 @@ function ProductDetailPage() {
           </div>
         </section>
 
-        {/* Related */}
         <section className="py-12 sm:py-16 bg-muted/30">
           <div className="container mx-auto px-4 sm:px-6">
             <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
@@ -163,8 +125,7 @@ function ProductDetailPage() {
               {related.map((p) => (
                 <Link
                   key={p.slug}
-                  to="/products/$slug"
-                  params={{ slug: p.slug }}
+                  to={`/products/${p.slug}`}
                   className="group block bg-card rounded-2xl border border-border shadow-card hover:shadow-glow transition-all overflow-hidden"
                 >
                   <div className="aspect-[4/3] overflow-hidden bg-muted">
@@ -197,9 +158,7 @@ function DetailCard({ title, icon, items }: { title: string; icon: React.ReactNo
   return (
     <div className="rounded-2xl border border-border bg-card p-6 shadow-card">
       <div className="flex items-center gap-2 mb-4">
-        <div className="h-8 w-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
-          {icon}
-        </div>
+        <div className="h-8 w-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">{icon}</div>
         <h3 className="text-lg font-bold">{title}</h3>
       </div>
       <ul className="space-y-2">
