@@ -24,37 +24,15 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    slug: "magnetic-closure-boxes-assembled",
-    title: "Magnetic Closure Boxes (Assembled)",
-    description: "Pre-assembled luxury rigid boxes with strong magnetic closure for a premium unboxing.",
-    longDescription:
-      "Our pre-assembled magnetic closure boxes deliver an instantly premium unboxing experience. Built from sturdy rigid greyboard wrapped in your choice of premium paper, with hidden magnets that snap shut with a satisfying click — perfect for high-end retail, gifting, subscription boxes, and PR mailers.",
-    image: magneticAssembled,
-    externalLink: "https://dailyboxpackaging.com/products/magnetic-closure-boxes-assembled/",
-    tag: "Bestseller — 3D View",
-    model3d: "/models/magnetic-box.glb",
-    features: [
-      "Strong hidden neodymium magnets",
-      "Rigid 1200–1500 GSM greyboard construction",
-      "Custom inserts (foam, EVA, velvet, paper pulp)",
-      "Foil stamping, embossing, debossing, spot UV",
-      "Soft-touch, matte, gloss, or textured finish",
-    ],
-    materials: ["Rigid greyboard", "Specialty paper wrap", "Recycled kraft", "Eco-friendly options"],
-    finishes: ["Matte lamination", "Gloss lamination", "Soft-touch", "Foil stamping", "Embossing", "Spot UV"],
-    useCases: ["Luxury retail", "Subscription boxes", "PR & influencer mailers", "Corporate gifting", "Wedding & event"],
-    moq: "100 units",
-    turnaround: "10–15 business days",
-  },
-  {
-    slug: "magnet-closure-boxes-collapsible",
-    title: "Magnet Closure Boxes (Collapsible)",
-    description: "Space-saving collapsible rigid boxes with magnetic flap — ship flat, fold instantly.",
+    slug: "mailer-boxes",
+    title: "Mailer Boxes",
+    description: "Space-saving mailer boxes with magnetic flap — ship flat, fold instantly.",
     longDescription:
       "All the luxury of a rigid magnetic box, shipped flat to slash your storage and freight costs. Folds in seconds without tools — perfect for brands that need premium presentation with smarter logistics.",
     image: collapsible,
     externalLink: "https://dailyboxpackaging.com/products/magnet-closure-boxes-collapsible/",
     tag: "Eco Smart",
+    model3d: "/models/mailer-box.glb",
     features: [
       "Ships flat — saves up to 80% storage space",
       "Tool-free fold-up assembly",
@@ -77,6 +55,7 @@ export const products: Product[] = [
     image: jewelry,
     externalLink: "https://dailyboxpackaging.com/products/jewelry-boxes/",
     tag: "Luxury",
+    model3d: "/models/jawerly-box.glb",
     features: [
       "Custom velvet, satin, or foam inserts",
       "Ring slots, necklace pads, earring holders",
@@ -113,15 +92,15 @@ export const products: Product[] = [
     turnaround: "12–18 business days",
   },
   {
-    slug: "rigid-candle-boxes",
-    title: "Rigid Candle Boxes",
+    slug: "magntic-rigid-boxes",
+    title: "Magntic Rigid Boxes",
     description: "Sturdy rigid candle boxes designed to protect, present, and elevate your fragrance brand.",
     longDescription:
       "Heavy-duty rigid boxes engineered for the weight of glass candles. Custom inserts hold the jar securely while premium finishes turn unboxing into part of the ritual.",
     image: candle,
     externalLink: "https://dailyboxpackaging.com/products/rigid-candle-boxes/",
     tag: "Trending",
-    model3d: "/models/rigid-candle-box.glb",
+    model3d: "/models/magntic-rigid-box.glb",
     features: [
       "Reinforced rigid construction for glass jars",
       "Custom-fit foam or paper pulp inserts",
@@ -144,7 +123,7 @@ export const products: Product[] = [
     image: sliding,
     externalLink: "https://dailyboxpackaging.com/products/sliding-boxes/",
     tag: "Versatile",
-    model3d: "/models/slider-box.glb",
+    model3d: "/models/slider-box2.glb",
     features: [
       "Two-piece drawer + sleeve construction",
       "Pull-tab or thumb-cut options",
