@@ -52,17 +52,25 @@ export function QuoteForm() {
 
   const onSubmit = async (values: FormValues) => {
     setSubmitting(true);
-    const subject = encodeURIComponent(`Quote Request — ${values.product}`);
-    const body = encodeURIComponent(
-      `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\nProduct: ${values.product}\nQuantity: ${values.quantity}\n\nMessage:\n${values.message ?? ""}`,
-    );
-    // Open user's email client with prefilled details
-    window.location.href = `mailto:sales@dailyboxpackaging.com?subject=${subject}&body=${body}`;
-    setTimeout(() => {
-      toast.success("Quote request ready! Your email client just opened with the details.");
+
+    try {
+      const apiURL = 'https://dailyboxpackaging.com/order/quote.php';
+      // const apiURL = 'http://localhost/corephp/api/quote.php';
+      const res = await fetch(apiURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      console.log('res: ',res);
+      if (!res.ok) throw new Error("Failed to send");
+  
+      toast.success("Quote sent! We’ll contact you soon.");
       reset();
+    } catch (e) {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
       setSubmitting(false);
-    }, 600);
+    }
   };
 
   return (

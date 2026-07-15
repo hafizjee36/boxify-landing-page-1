@@ -19,6 +19,7 @@ const schema = z.object({
   name: z.string().trim().min(2, "Name is too short").max(80),
   email: z.string().trim().email("Invalid email").max(120),
   phone: z.string().trim().min(7, "Enter a valid phone").max(25),
+  quantity: z.string().trim().min(1, "Quantity is required").max(20),
   product: z.string().min(1, "Select a product"),
   message: z.string().trim().max(500).optional().or(z.literal("")),
 });
@@ -44,21 +45,30 @@ export function QuoteFormCompact() {
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
-    defaultValues: { name: "", email: "", phone: "", product: "", message: "" },
+    defaultValues: { name: "", email: "", phone: "", quantity: "", product: "", message: "" },
   });
 
-  const onSubmit = (values: FormValues) => {
+  const onSubmit = async (values: FormValues) => {
     setSubmitting(true);
-    const subject = encodeURIComponent(`Quick Quote — ${values.product}`);
-    const body = encodeURIComponent(
-      `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\nProduct: ${values.product}\n\nDescription:\n${values.message ?? ""}`,
-    );
-    window.location.href = `mailto:sales@dailyboxpackaging.com?subject=${subject}&body=${body}`;
-    setTimeout(() => {
-      toast.success("Quote ready! Email client opened.");
+
+    try {
+      const apiURL = 'https://dailyboxpackaging.com/order/quote.php';
+      // const apiURL = 'http://localhost/corephp/api/quote.php';
+      const res = await fetch(apiURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      console.log('res: ',res);
+      if (!res.ok) throw new Error("Failed to send");
+  
+      toast.success("Quote sent! We’ll contact you soon.");
       reset();
+    } catch (e) {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
       setSubmitting(false);
-    }, 600);
+    }
   };
 
   return (
@@ -81,19 +91,25 @@ export function QuoteFormCompact() {
           </div>
         </div>
 
-        <div className="space-y-1.5">
-          <Input placeholder="Full name" {...register("name")} className="h-12 rounded-xl bg-background/70 px-4" />
-          {errors.name && <p className="text-[11px] text-destructive">{errors.name.message}</p>}
-        </div>
-
         <div className="grid sm:grid-cols-2 gap-4">
+          <div className="space-y-1.5">
+            <Input placeholder="Full name" {...register("name")} className="h-12 rounded-xl bg-background/70 px-4" />
+            {errors.name && <p className="text-[11px] text-destructive">{errors.name.message}</p>}
+          </div>
           <div className="space-y-1.5">
             <Input type="email" placeholder="Email" {...register("email")} className="h-12 rounded-xl bg-background/70 px-4" />
             {errors.email && <p className="text-[11px] text-destructive">{errors.email.message}</p>}
           </div>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
             <Input type="tel" placeholder="Phone" {...register("phone")} className="h-12 rounded-xl bg-background/70 px-4" />
             {errors.phone && <p className="text-[11px] text-destructive">{errors.phone.message}</p>}
+          </div>
+          <div className="space-y-1.5">
+            <Input id="quantity" placeholder="e.g. 500" {...register("quantity")} className="h-12 rounded-xl bg-background/70 px-4" />
+            {errors.quantity && <p className="text-xs text-destructive">{errors.quantity.message}</p>}
           </div>
         </div>
 

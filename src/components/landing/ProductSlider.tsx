@@ -66,21 +66,15 @@ export function ProductSlider() {
                     className="group h-full bg-gradient-card rounded-3xl border border-border shadow-card hover:shadow-glow transition-all duration-500 overflow-hidden"
                   >
                     <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                      
                         {p.model3d ? (
                           <Box3DViewer src={p.model3d} alt={p.title} poster={p.image} className="w-full h-full" />
                         ) : (
-                          <Link
-                            to={`/products/${p.slug}`}
-                            className="inline-flex items-center gap-2 text-primary font-semibold text-sm group/link"
-                          >
-                            <img
-                              src={p.image}
-                              alt={p.title}
-                              loading="lazy"
-                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                            />
-                          </Link>
+                          <img
+                            src={p.image}
+                            alt={p.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
                         )}
                       <div className="absolute top-3 left-3 rounded-full bg-card/90 backdrop-blur px-3 py-1 text-xs font-bold text-primary shadow-card pointer-events-none">
                         {p.tag}
