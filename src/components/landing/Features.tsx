@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Palette, Truck, Recycle, BadgeCheck, Layers, HeartHandshake } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const features = [
   { icon: Palette, title: "Free Custom Design", desc: "Our designers turn your idea into a print-ready masterpiece — at no extra cost." },
@@ -46,6 +47,11 @@ export function Features() {
               <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
             </motion.div>
           ))}
+        </div>
+        <div className="flex items-center justify-center gap-4 mt-4">
+          <Button asChild size="lg" className="bg-gradient-hero text-primary-foreground shadow-glow hover:scale-105 transition-transform">
+            <a href="/">See All Products</a>
+          </Button>
         </div>
       </div>
     </section>

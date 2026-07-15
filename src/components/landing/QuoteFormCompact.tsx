@@ -26,10 +26,9 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 const productOptions = [
-  "Magnetic Closure Boxes",
+  "Mailer Boxes",
   "Jewelry Boxes",
-  "Watch Boxes",
-  "Rigid Candle Boxes",
+  "Magntic Rigid Boxes",
   "Sliding Boxes",
   "Other / Custom",
 ];

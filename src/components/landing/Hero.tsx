@@ -21,10 +21,10 @@ export function Hero() {
           transition={{ duration: 0.7 }}
           className="space-y-6 text-center lg:text-left"
         >
-          <div className="inline-flex items-center gap-2 rounded-full bg-card/80 backdrop-blur border border-border px-4 py-1.5 text-sm font-medium shadow-card">
+          {/* <div className="inline-flex items-center gap-2 rounded-full bg-card/80 backdrop-blur border border-border px-4 py-1.5 text-sm font-medium shadow-card">
             <Sparkles className="h-4 w-4 text-primary" />
             <span>AI-assisted custom box design</span>
-          </div>
+          </div> */}
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
             Premium Custom <br />

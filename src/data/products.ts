@@ -32,7 +32,7 @@ export const products: Product[] = [
     image: collapsible,
     externalLink: "https://dailyboxpackaging.com/products/magnet-closure-boxes-collapsible/",
     tag: "Eco Smart",
-    model3d: "/models/mailer-box.glb",
+    model3d: "/order/models/mailer-box.glb",
     features: [
       "Ships flat — saves up to 80% storage space",
       "Tool-free fold-up assembly",
@@ -55,7 +55,7 @@ export const products: Product[] = [
     image: jewelry,
     externalLink: "https://dailyboxpackaging.com/products/jewelry-boxes/",
     tag: "Luxury",
-    model3d: "/models/jawerly-box.glb",
+    model3d: "/order/models/jawerly-box.glb",
     features: [
       "Custom velvet, satin, or foam inserts",
       "Ring slots, necklace pads, earring holders",
@@ -100,7 +100,7 @@ export const products: Product[] = [
     image: candle,
     externalLink: "https://dailyboxpackaging.com/products/rigid-candle-boxes/",
     tag: "Trending",
-    model3d: "/models/magntic-rigid-box.glb",
+    model3d: "/order/models/magntic-rigid-box.glb",
     features: [
       "Reinforced rigid construction for glass jars",
       "Custom-fit foam or paper pulp inserts",
@@ -123,7 +123,7 @@ export const products: Product[] = [
     image: sliding,
     externalLink: "https://dailyboxpackaging.com/products/sliding-boxes/",
     tag: "Versatile",
-    model3d: "/models/slider-box2.glb",
+    model3d: "/order/models/slider-box2.glb",
     features: [
       "Two-piece drawer + sleeve construction",
       "Pull-tab or thumb-cut options",

@@ -16,4 +16,5 @@ export default defineConfig({
     port: 8080,
     strictPort: true,
   },
+  // base: "/order/",
 });

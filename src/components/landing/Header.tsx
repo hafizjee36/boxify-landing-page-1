@@ -6,7 +6,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
-        <a href="#top" className="flex items-center gap-2 shrink-0">
+        <a href="/" className="flex items-center gap-2 shrink-0">
           <img src={logo} alt="DailyBox Packaging" className="h-10 sm:h-12 w-auto" />
         </a>
         <div className="hidden md:flex items-center gap-6 text-sm">
